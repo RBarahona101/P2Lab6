@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Alimento {
     protected String nombre;
-    protected String categoria;
+    protected Categoria categoria;
     protected int costo;
     protected int calorias;
 
@@ -19,11 +19,11 @@ public class Alimento {
         this.nombre = nombre;
     }
 
-    public String getCategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 
@@ -43,7 +43,7 @@ public class Alimento {
         this.calorias = calorias;
     }
 
-    public Alimento(String nombre, String categoria, int costo, int calorias) {
+    public Alimento(String nombre, Categoria categoria, int costo, int calorias) {
         this.nombre = nombre;
         this.categoria = categoria;
         this.costo = costo;
