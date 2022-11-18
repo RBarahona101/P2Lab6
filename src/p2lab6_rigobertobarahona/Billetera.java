@@ -30,5 +30,10 @@ public class Billetera {
         this.consumo = consumo;
         this.costo = costo;
     }
+
+    @Override
+    public String toString() {
+        return "Billetera";
+    }
     
 }

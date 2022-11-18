@@ -87,5 +87,10 @@ public class Jugador {
         this.amigos = amigos;
         this.solicitudes = solicitudes;
     }
+
+    @Override
+    public String toString() {
+        return username;
+    }
     
 }
