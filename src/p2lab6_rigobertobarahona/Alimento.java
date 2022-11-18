@@ -1,14 +1,58 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package p2lab6_rigobertobarahona;
 
-/**
- *
- * @author Ivins
- */
+import java.util.ArrayList;
+
 public class Alimento {
+    protected String nombre;
+    protected String categoria;
+    protected int costo;
+    protected int calorias;
+
+    public Alimento() {
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public int getCosto() {
+        return costo;
+    }
+
+    public void setCosto(int costo) {
+        this.costo = costo;
+    }
+
+    public int getCalorias() {
+        return calorias;
+    }
+
+    public void setCalorias(int calorias) {
+        this.calorias = calorias;
+    }
+
+    public Alimento(String nombre, String categoria, int costo, int calorias) {
+        this.nombre = nombre;
+        this.categoria = categoria;
+        this.costo = costo;
+        this.calorias = calorias;
+    }
+
+    @Override
+    public String toString() {
+        return nombre;
+    }
     
 }

@@ -1,14 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package p2lab6_rigobertobarahona;
 
-/**
- *
- * @author Ivins
- */
+import java.util.ArrayList;
+
 public class Billetera {
+    protected int consumo;
+    protected int costo;
+
+    public Billetera() {
+    }
+
+    public int getConsumo() {
+        return consumo;
+    }
+
+    public void setConsumo(int consumo) {
+        this.consumo = consumo;
+    }
+
+    public int getCosto() {
+        return costo;
+    }
+
+    public void setCosto(int costo) {
+        this.costo = costo;
+    }
+    
+    
+    public Billetera(int consumo, int costo) {
+        this.consumo = consumo;
+        this.costo = costo;
+    }
     
 }
