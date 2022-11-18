@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+
 public class Main extends javax.swing.JFrame {
 
     public Main() {
@@ -488,16 +491,35 @@ public class Main extends javax.swing.JFrame {
         }else{
             categorias.add(categoria);
         }
+        String cat = Alimento_Categoria.getText();
         int calorias = Integer.parseInt(Alimento_Calorias.getText() );
         int costo = Integer.parseInt(Alimento_Costo.getText() );
+        
         alimentos.add(new Alimento( nombre, categoria, costo, calorias ) );
+        
         JOptionPane.showMessageDialog(this, "Alimento Agregado Exitosamente");
+        
         Alimento_Nombre.setText("");
         Alimento_Categoria.setText("");
         Alimento_Calorias.setText("");
         Alimento_Costo.setText("");
         Jugador_Crear.setEnabled(true);
         Alimentos = new DefaultComboBoxModel(alimentos.toArray());
+        // Arbol Time
+        DefaultTreeModel Tree = (DefaultTreeModel) Arbol.getModel();
+        DefaultMutableTreeNode Root = (DefaultMutableTreeNode) Tree.getRoot();
+        int repeat = 0;
+        for (int i = 0; i < Root.getChildCount(); i++) {
+            if (Root.getChildAt(i).toString().equals(cat)) {
+                DefaultMutableTreeNode p  = new DefaultMutableTreeNode(categoria);
+                ((DefaultMutableTreeNode) Root.getChildAt(i)).add(p);
+                repeat = 1;
+            }
+        }
+        if (repeat == 1){
+            
+        }
+        
     }//GEN-LAST:event_Alimento_CrearMouseClicked
 
     private void Jugador_CrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jugador_CrearMouseClicked
