@@ -11,13 +11,16 @@ public class Main extends javax.swing.JFrame {
 
     public Main() {
         initComponents();
+        DefaultTreeModel modelo =(DefaultTreeModel) Arbol.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
     }
 
     @SuppressWarnings("unchecked")
     ArrayList<Categoria> categorias = new ArrayList();
-    ArrayList<Jugador> jugadore = new ArrayList();
+    ArrayList<Jugador> jugadores = new ArrayList();
     ArrayList<Alimento> alimentos = new ArrayList();
-    
+    ArrayList<Billetera> billeteras = new ArrayList();
+    ArrayList<Jugador> Usuario = new ArrayList();
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -50,12 +53,12 @@ public class Main extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         Jugador_Username = new javax.swing.JFormattedTextField();
         jLabel8 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        Jugador_Consumo = new javax.swing.JFormattedTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
+        Billetera_Consumo = new javax.swing.JFormattedTextField();
         jLabel11 = new javax.swing.JLabel();
-        jFormattedTextField3 = new javax.swing.JFormattedTextField();
+        Billetera_Maximo = new javax.swing.JFormattedTextField();
         jLabel12 = new javax.swing.JLabel();
         Jugador_Alimento = new javax.swing.JComboBox<>();
         Jugador_Crear = new javax.swing.JButton();
@@ -255,7 +258,7 @@ public class Main extends javax.swing.JFrame {
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Puntos de Gordura");
 
-        jFormattedTextField1.setActionCommand("<Not Set>");
+        Jugador_Consumo.setActionCommand("<Not Set>");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -329,26 +332,25 @@ public class Main extends javax.swing.JFrame {
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Alimento_Crear, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(Alimento_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGap(368, 368, 368)
-                                        .addComponent(Asignar_Jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
-                                        .addComponent(Asignar_Comida, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(13, 13, 13))))
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(Billetera_Maximo, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(29, 29, 29))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel4)
-                                .addGap(134, 134, 134)
-                                .addComponent(jLabel5)))
-                        .addGap(26, 26, 26))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addGap(134, 134, 134)
+                                        .addComponent(jLabel5))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(Asignar_Jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(57, 57, 57)
+                                        .addComponent(Asignar_Comida, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addContainerGap())
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -368,12 +370,12 @@ public class Main extends javax.swing.JFrame {
                                         .addGap(9, 9, 9)
                                         .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(Jugador_Consumo, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(Jugador_Alimento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(142, 142, 142)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jFormattedTextField2)
+                                    .addComponent(Billetera_Consumo)
                                     .addComponent(Jugador_Crear, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -392,7 +394,7 @@ public class Main extends javax.swing.JFrame {
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Alimento_Costo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(244, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -409,9 +411,9 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Jugador_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Jugador_Consumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Billetera_Consumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Billetera_Maximo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -439,19 +441,24 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel14)
                     .addComponent(jLabel15)
                     .addComponent(jLabel16))
-                .addGap(22, 22, 22)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Asignar_Jugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Asignar_Comida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Alimento_Categoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Alimento_Calorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Alimento_Costo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Alimento_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Alimento_Categoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Alimento_Calorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Alimento_Costo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Alimento_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Asignar_Jugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Asignar_Comida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Alimento_Crear, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Crear", jPanel3);
@@ -471,11 +478,12 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Jugador_CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jugador_CrearActionPerformed
-        DefaultComboBoxModel Jugadores = (DefaultComboBoxModel) Asignar_Jugador.getModel();
+        
     }//GEN-LAST:event_Jugador_CrearActionPerformed
 
     private void Alimento_CrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Alimento_CrearMouseClicked
         DefaultComboBoxModel Alimentos = (DefaultComboBoxModel) Jugador_Alimento.getModel();
+        DefaultComboBoxModel Alimentos2 = (DefaultComboBoxModel) Asignar_Comida.getModel();
         String nombre = Alimento_Nombre.getText();
         Categoria categoria = new Categoria (Alimento_Categoria.getText() );
         boolean fucko = false;
@@ -490,13 +498,18 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Repeticion Detectada");
         }else{
             categorias.add(categoria);
-        }
-        String cat = Alimento_Categoria.getText();
+            String cat = Alimento_Categoria.getText();
         int calorias = Integer.parseInt(Alimento_Calorias.getText() );
         int costo = Integer.parseInt(Alimento_Costo.getText() );
         
         alimentos.add(new Alimento( nombre, categoria, costo, calorias ) );
         
+        Alimentos = new DefaultComboBoxModel(alimentos.toArray());
+        
+        Jugador_Alimento.setModel(Alimentos);
+        Asignar_Comida.setModel(Alimentos);
+        
+
         JOptionPane.showMessageDialog(this, "Alimento Agregado Exitosamente");
         
         Alimento_Nombre.setText("");
@@ -504,26 +517,82 @@ public class Main extends javax.swing.JFrame {
         Alimento_Calorias.setText("");
         Alimento_Costo.setText("");
         Jugador_Crear.setEnabled(true);
-        Alimentos = new DefaultComboBoxModel(alimentos.toArray());
+        
         // Arbol Time
         DefaultTreeModel Tree = (DefaultTreeModel) Arbol.getModel();
         DefaultMutableTreeNode Root = (DefaultMutableTreeNode) Tree.getRoot();
+        
         int repeat = 0;
+        DefaultMutableTreeNode n = new DefaultMutableTreeNode (cat);
+        
         for (int i = 0; i < Root.getChildCount(); i++) {
-            if (Root.getChildAt(i).toString().equals(cat)) {
-                DefaultMutableTreeNode p  = new DefaultMutableTreeNode(categoria);
-                ((DefaultMutableTreeNode) Root.getChildAt(i)).add(p);
-                repeat = 1;
+            if (Root.getChildAt(i).toString().equalsIgnoreCase(cat)) {
+
+            }else{
+                DefaultMutableTreeNode n1 = new DefaultMutableTreeNode(cat);
+                Root.add(n1);
             }
         }
-        if (repeat == 1){
-            
-        }
+    }
+        
         
     }//GEN-LAST:event_Alimento_CrearMouseClicked
 
     private void Jugador_CrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jugador_CrearMouseClicked
-        // TODO add your handling code here:
+        DefaultComboBoxModel Jugadores = (DefaultComboBoxModel) Asignar_Jugador.getModel();
+        String nombre = Jugador_Nombre.getText();
+        boolean fucko = false;
+        String username = Jugador_Username.getText();
+        if (jugadores.size() < 0){
+            for (int i = 0; i < jugadores.size() ; i++){
+                if (username.equalsIgnoreCase(jugadores.get(i).getUsername() ) ){
+                    fucko = true;
+                }
+            }
+        }
+        if (fucko == true){
+            JOptionPane.showMessageDialog(this, "Repeticion Detectada");
+        }else{
+            String gordura = "";
+            int consumo = Integer.parseInt(Jugador_Consumo.getText() ) ;
+            if (consumo < 500){
+                gordura = "N0";
+            } else if (consumo > 500 && consumo < 1000){
+                gordura = "N1";
+                consumo = 1000 - consumo;
+            } else if (consumo > 1000 && consumo < 2000){
+                gordura = "N2";
+                consumo = 2000 - consumo;
+            } else if (consumo > 2000 && consumo < 4000){
+                gordura = "N3";
+                consumo = 4000 - consumo;
+            } else if (consumo > 4000 && consumo < 8000){
+                gordura = "N4";
+                consumo = 8000 - consumo;
+            } else if (consumo > 8000 && consumo < 16000){
+                gordura = "N5";
+                consumo = 16000 - consumo;
+            }
+            Alimento alimento = (Alimento) Jugador_Alimento.getSelectedItem();
+
+            int costo = Integer.parseInt(Billetera_Consumo.getText() );
+            int maximo = Integer.parseInt(Billetera_Maximo.getText() );
+
+            Billetera billetera = new Billetera(costo, maximo);
+            billeteras.add(billetera);
+            ArrayList<Jugador> temp1 = new ArrayList();
+            ArrayList<Jugador> temp2 = new ArrayList();
+
+            jugadores.add( new Jugador (nombre, username, gordura, consumo, billetera, alimento, temp1, temp2 ) );
+            JOptionPane.showMessageDialog(this, "Jugador Creado Exitosamente");
+            Jugadores = new DefaultComboBoxModel(jugadores.toArray() );
+            Asignar_Jugador.setModel(Jugadores);
+            Jugador_Nombre.setText("");
+            Jugador_Username.setText("");
+            Jugador_Consumo.setText("");
+            Billetera_Consumo.setText("");
+            Billetera_Maximo.setText("");   
+        }
     }//GEN-LAST:event_Jugador_CrearMouseClicked
 
     private void AceptarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AceptarMouseClicked
@@ -575,9 +644,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTree Arbol;
     private javax.swing.JComboBox<String> Asignar_Comida;
     private javax.swing.JComboBox<String> Asignar_Jugador;
+    private javax.swing.JFormattedTextField Billetera_Consumo;
+    private javax.swing.JFormattedTextField Billetera_Maximo;
     private javax.swing.JLabel Friend_Jugador;
     private javax.swing.JComboBox<String> Friend_Requests;
     private javax.swing.JComboBox<String> Jugador_Alimento;
+    private javax.swing.JFormattedTextField Jugador_Consumo;
     private javax.swing.JButton Jugador_Crear;
     private javax.swing.JFormattedTextField Jugador_Nombre;
     private javax.swing.JFormattedTextField Jugador_Username;
@@ -585,9 +657,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton Rechazar;
     private javax.swing.JTable Tabla_Amigos;
     private javax.swing.JButton jButton1;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
