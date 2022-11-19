@@ -11,8 +11,23 @@ public class Main extends javax.swing.JFrame {
 
     public Main() {
         initComponents();
-        DefaultTreeModel modelo =(DefaultTreeModel) Arbol.getModel();
-        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
+        Categoria Ca = new Categoria("Pasta");
+        Alimento Aa = new Alimento("Lasagna", Ca, 850, 120);
+        Billetera Ba = new Billetera(80, 8000);
+
+        Jugador J = new Jugador("Rodrick", "Dr.Powner", "N1", 200, Ba, Aa, Amigos, Solicitudes);
+        jugadores.add(J);
+        alimentos.add(Aa);
+        categorias.add(Ca);
+        billeteras.add(Ba);
+        DefaultComboBoxModel Alimentos = (DefaultComboBoxModel) Jugador_Alimento.getModel();
+        Alimentos = new DefaultComboBoxModel(alimentos.toArray());
+        Jugador_Alimento.setModel(Alimentos);
+        Asignar_Alimento.setModel(Alimentos);
+        DefaultComboBoxModel Jugadores = (DefaultComboBoxModel) Asignar_Jugador.getModel();
+        Jugadores = new DefaultComboBoxModel(jugadores.toArray());
+        Asignar_Jugador.setModel(Jugadores);
+        Jugadores_Jugadores.setModel(Jugadores);
     }
 
     @SuppressWarnings("unchecked")
@@ -21,6 +36,9 @@ public class Main extends javax.swing.JFrame {
     ArrayList<Alimento> alimentos = new ArrayList();
     ArrayList<Billetera> billeteras = new ArrayList();
     ArrayList<Jugador> Usuario = new ArrayList();
+            ArrayList<Jugador> Amigos = new ArrayList();
+        ArrayList<Jugador> Solicitudes = new ArrayList();
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -36,10 +54,13 @@ public class Main extends javax.swing.JFrame {
         Jugadores_Send = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         Billetera_Jugador = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        Billetera_Tabla = new javax.swing.JTable();
+        jLabel20 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         Friend_Jugador = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        Tabla_Amigos = new javax.swing.JTable();
+        Friend_Tabla = new javax.swing.JTable();
         Friend_Requests = new javax.swing.JComboBox<>();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -162,7 +183,7 @@ public class Main extends javax.swing.JFrame {
                         .addGap(50, 50, 50)
                         .addComponent(Jugadores_Send)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Jugadores", jPanel1);
@@ -172,21 +193,57 @@ public class Main extends javax.swing.JFrame {
         Billetera_Jugador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Billetera_Jugador.setText("Jugador Seleccionado: ");
 
+        Billetera_Tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Username", "Nivel", "Puntos", "Alimento"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(Billetera_Tabla);
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel20.setText("Average American Citizen Simulator");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(290, Short.MAX_VALUE)
-                .addComponent(Billetera_Jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(239, 239, 239))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane3)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 91, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(Billetera_Jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(239, 239, 239))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 665, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(89, 89, 89))))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Billetera_Jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(419, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(293, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Billetera", jPanel2);
@@ -197,7 +254,7 @@ public class Main extends javax.swing.JFrame {
         Friend_Jugador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Friend_Jugador.setText("Jugador Seleccionado: ");
 
-        Tabla_Amigos.setModel(new javax.swing.table.DefaultTableModel(
+        Friend_Tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -213,7 +270,7 @@ public class Main extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(Tabla_Amigos);
+        jScrollPane2.setViewportView(Friend_Tabla);
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -235,6 +292,11 @@ public class Main extends javax.swing.JFrame {
         Rechazar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Rechazar.setText("Rechazar");
         Rechazar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Rechazar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RechazarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -278,7 +340,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jLabel18)
                 .addGap(18, 18, 18)
                 .addComponent(Friend_Requests, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Aceptar)
                     .addComponent(Rechazar))
@@ -532,7 +594,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(Asignar_Button)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Alimento_Crear, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Crear", jPanel3);
@@ -550,7 +612,7 @@ public class Main extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void Jugador_CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jugador_CrearActionPerformed
         
     }//GEN-LAST:event_Jugador_CrearActionPerformed
@@ -654,15 +716,16 @@ public class Main extends javax.swing.JFrame {
 
             Billetera billetera = new Billetera(costo, maximo);
             billeteras.add(billetera);
-            ArrayList<Jugador> temp1 = new ArrayList();
-            ArrayList<Jugador> temp2 = new ArrayList();
 
-            jugadores.add( new Jugador (nombre, username, gordura, consumo, billetera, alimento, temp1, temp2 ) );
+            jugadores.add( new Jugador (nombre, username, gordura, consumo, billetera, alimento, Amigos, Solicitudes ) );
+            
             JOptionPane.showMessageDialog(this, "Jugador Creado Exitosamente");
+            
             Jugadores = new DefaultComboBoxModel(jugadores.toArray() );
+            
             Asignar_Jugador.setModel(Jugadores);
             Jugadores_Jugadores.setModel(Jugadores);
-            Jugadores_Friend.setModel(Jugadores);
+            
             
             Jugador_Nombre.setText("");
             Jugador_Username.setText("");
@@ -687,22 +750,59 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_Asignar_ButtonMouseClicked
 
     private void Jugadores_SetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jugadores_SetMouseClicked
-       if (Usuario.isEmpty() ){
+        DefaultTableModel Comer = (DefaultTableModel) Billetera_Tabla.getModel();
+        DefaultTableModel Friends = (DefaultTableModel) Friend_Tabla.getModel();
+        
+        DefaultComboBoxModel Requests = (DefaultComboBoxModel) Friend_Requests.getModel();
+        DefaultComboBoxModel All = (DefaultComboBoxModel) Jugadores_Friend.getModel();
+        
+        if (Usuario.isEmpty() ){
            Usuario.add( (Jugador) Jugadores_Jugadores.getSelectedItem() );           
        } else {
            Usuario.clear();
            Usuario.add( (Jugador) Jugadores_Jugadores.getSelectedItem() );
        }
        Jugadores_Send.setEnabled(true);
+       
        Jugadores_Jugador.setText("Usuario Actual: " + ( (Jugador) Usuario.get(0) ).getUsername() );
        Billetera_Jugador.setText("Usuario Actual: " + ( (Jugador) Usuario.get(0) ).getUsername() );
        Friend_Jugador.setText("Usuario Actual: " + ( (Jugador) Usuario.get(0) ).getUsername() );
+       //Friend Requesting
+       ArrayList<Jugador> butMe = jugadores;
+       for (int i = 0; i < jugadores.size(); i++){
+           if (Usuario.get(0) == butMe.get(i) ){
+               butMe.remove(i);
+           }
+       }
+       All = new DefaultComboBoxModel(butMe.toArray());
+       Jugadores_Friend.setModel(All);
+       //Friend Requests
+       Requests = new DefaultComboBoxModel(Usuario.get(0).getSolicitudes().toArray() );
+       Friend_Requests.setModel(Requests);
+       //Simulacion Tabla
+       Comer.setRowCount(0);
+       Object[] objs = {Usuario.get(0).getNombre(), Usuario.get(0).getUsername(), Usuario.get(0).getGordura(), Usuario.get(0).getConsumo(), Usuario.get(0).getAlimento() };
+       Comer.addRow(objs);
+       Billetera_Tabla.setModel(Comer);
+       // Current Friends
+       Friends.setRowCount(0);
+       ArrayList<Jugador> temp = Usuario.get(0).getAmigos(); 
+       for (int i = 0; i < temp.size() ; i++){
+           Object [] obj = { ( (Jugador) temp.get(i) ).getUsername(), ( (Jugador) temp.get(i) ), ( (Jugador) temp.get(i) ).getGordura(), ( (Jugador) temp.get(i) ).getConsumo() } ;
+           Friends.addRow(obj);
+       }
+       Friend_Tabla.setModel(Friends);
+       
        JOptionPane.showMessageDialog(this, "Usuario Cargado");
     }//GEN-LAST:event_Jugadores_SetMouseClicked
 
     private void Jugadores_SendMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jugadores_SendMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_Jugadores_SendMouseClicked
+
+    private void RechazarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RechazarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RechazarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -753,8 +853,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField Billetera_Consumo;
     private javax.swing.JLabel Billetera_Jugador;
     private javax.swing.JFormattedTextField Billetera_Maximo;
+    private javax.swing.JTable Billetera_Tabla;
     private javax.swing.JLabel Friend_Jugador;
     private javax.swing.JComboBox<String> Friend_Requests;
+    private javax.swing.JTable Friend_Tabla;
     private javax.swing.JComboBox<String> Jugador_Alimento;
     private javax.swing.JFormattedTextField Jugador_Consumo;
     private javax.swing.JButton Jugador_Crear;
@@ -766,7 +868,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton Jugadores_Send;
     private javax.swing.JButton Jugadores_Set;
     private javax.swing.JButton Rechazar;
-    private javax.swing.JTable Tabla_Amigos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -779,6 +880,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -792,6 +894,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
