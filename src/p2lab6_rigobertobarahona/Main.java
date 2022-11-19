@@ -57,6 +57,8 @@ public class Main extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         Billetera_Tabla = new javax.swing.JTable();
         jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        Billetera_Comer = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         Friend_Jugador = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -163,7 +165,7 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(180, 180, 180)
                         .addComponent(Jugadores_Send, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(9, 154, Short.MAX_VALUE))
+                .addGap(9, 265, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,25 +216,42 @@ public class Main extends javax.swing.JFrame {
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel20.setText("Average American Citizen Simulator");
 
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        Billetera_Comer.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        Billetera_Comer.setText("EAT EAT EAT");
+        Billetera_Comer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Billetera_Comer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Billetera_ComerMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jScrollPane3)
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane3)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 91, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(Billetera_Jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(239, 239, 239))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 665, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(89, 89, 89))))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(235, 235, 235)
+                        .addComponent(Billetera_Comer, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 665, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Billetera_Jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(304, 304, 304))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,7 +262,11 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(293, Short.MAX_VALUE))
+                .addGap(87, 87, 87)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Billetera_Comer, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Billetera", jPanel2);
@@ -302,10 +325,6 @@ public class Main extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(251, 251, 251))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -325,8 +344,11 @@ public class Main extends javax.swing.JFrame {
                                 .addComponent(Aceptar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(Rechazar))
-                            .addComponent(Friend_Requests, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(75, Short.MAX_VALUE))
+                            .addComponent(Friend_Requests, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(276, 276, 276)
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(186, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -376,7 +398,6 @@ public class Main extends javax.swing.JFrame {
         Asignar_Button.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Asignar_Button.setText("Asignar");
         Asignar_Button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Asignar_Button.setEnabled(false);
         Asignar_Button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Asignar_ButtonMouseClicked(evt);
@@ -418,7 +439,6 @@ public class Main extends javax.swing.JFrame {
         Jugador_Crear.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Jugador_Crear.setText("Crear Jugador");
         Jugador_Crear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Jugador_Crear.setEnabled(false);
         Jugador_Crear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Jugador_CrearMouseClicked(evt);
@@ -513,7 +533,7 @@ public class Main extends javax.swing.JFrame {
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Alimento_Costo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(244, Short.MAX_VALUE))
+                        .addContainerGap(355, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -620,6 +640,7 @@ public class Main extends javax.swing.JFrame {
     private void Alimento_CrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Alimento_CrearMouseClicked
         DefaultComboBoxModel Alimentos = (DefaultComboBoxModel) Jugador_Alimento.getModel();
         DefaultComboBoxModel Alimentos2 = (DefaultComboBoxModel) Asignar_Alimento.getModel();
+        
         String nombre = Alimento_Nombre.getText();
         Categoria categoria = new Categoria (Alimento_Categoria.getText() );
         boolean fucko = false;
@@ -737,7 +758,25 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_Jugador_CrearMouseClicked
 
     private void AceptarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AceptarMouseClicked
-        // TODO add your handling code here:
+    DefaultTableModel Friends = (DefaultTableModel) Friend_Tabla.getModel();
+     DefaultComboBoxModel Requests = (DefaultComboBoxModel) Friend_Requests.getModel(); 
+    if (( (Jugador) Usuario.get(0) ).getAmigos().isEmpty() ){
+        JOptionPane.showMessageDialog(this, "Tienes que dejarla ir Nuila");
+    } else{
+        ( (Jugador) Usuario.get(0) ).getAmigos().add( (Jugador) Friend_Requests.getSelectedItem() );
+        ( (Jugador) Usuario.get(0) ).getSolicitudes().remove( (Jugador) Friend_Requests.getSelectedItem() );
+
+        Friends.setRowCount(0);
+           ArrayList<Jugador> temp = Usuario.get(0).getAmigos(); 
+           for (int i = 0; i < temp.size() ; i++){
+               Object [] obj = { ( (Jugador) temp.get(i) ).getUsername(), ( (Jugador) temp.get(i) ).getGordura(), ( (Jugador) temp.get(i) ).getConsumo() } ;
+               Friends.addRow(obj);
+           }
+        Friend_Tabla.setModel(Friends);
+        Requests = new DefaultComboBoxModel(Usuario.get(0).getSolicitudes().toArray() );
+        Friend_Requests.setModel(Requests);
+        JOptionPane.showMessageDialog(this, "Hola Amigo");
+    }
     }//GEN-LAST:event_AceptarMouseClicked
 
     private void Asignar_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Asignar_ButtonMouseClicked
@@ -767,6 +806,7 @@ public class Main extends javax.swing.JFrame {
        Jugadores_Jugador.setText("Usuario Actual: " + ( (Jugador) Usuario.get(0) ).getUsername() );
        Billetera_Jugador.setText("Usuario Actual: " + ( (Jugador) Usuario.get(0) ).getUsername() );
        Friend_Jugador.setText("Usuario Actual: " + ( (Jugador) Usuario.get(0) ).getUsername() );
+       
        //Friend Requesting
        ArrayList<Jugador> butMe = jugadores;
        for (int i = 0; i < jugadores.size(); i++){
@@ -797,12 +837,107 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_Jugadores_SetMouseClicked
 
     private void Jugadores_SendMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jugadores_SendMouseClicked
-        // TODO add your handling code here:
+     DefaultComboBoxModel Requests = (DefaultComboBoxModel) Friend_Requests.getModel();    
+    ( (Jugador) Usuario.get(0) ).getSolicitudes().add( (Jugador) Jugadores_Friend.getSelectedItem() );
+    Requests = new DefaultComboBoxModel(Usuario.get(0).getSolicitudes().toArray() );
+    Friend_Requests.setModel(Requests);
+    JOptionPane.showMessageDialog(this, "Se ha mandado su solicitud de amistad" );
     }//GEN-LAST:event_Jugadores_SendMouseClicked
 
     private void RechazarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RechazarMouseClicked
-        // TODO add your handling code here:
+    DefaultComboBoxModel Requests = (DefaultComboBoxModel) Friend_Requests.getModel();  
+    if (( (Jugador) Usuario.get(0) ).getSolicitudes().isEmpty() ){
+        JOptionPane.showMessageDialog(this, "Y a quien estas rechazando?");
+    }else{
+        ( (Jugador) Usuario.get(0) ).getSolicitudes().remove( (Jugador) Friend_Requests.getSelectedItem() );
+        Requests = new DefaultComboBoxModel(Usuario.get(0).getSolicitudes().toArray() );
+        Friend_Requests.setModel(Requests);
+        JOptionPane.showMessageDialog(this, "Rechazado Papo");
+    }
     }//GEN-LAST:event_RechazarMouseClicked
+
+    private void Billetera_ComerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Billetera_ComerMouseClicked
+        DefaultTableModel Comer = (DefaultTableModel) Billetera_Tabla.getModel();
+        int limite = 0; 
+        int start;
+        int cont = 6;
+        String ver = Usuario.get(0).getGordura();
+        switch(ver){
+            case "N0": {
+                limite = 500;
+                break;
+            }
+            case "N1": {
+                limite = 1000;
+                break;
+            }
+            case "N2": {
+                limite = 2000;
+                break;
+            }
+            case "N3": {
+                limite = 4000;
+                break;
+            }
+            case "N4": {
+                limite = 8000;
+                break;
+            }
+            case "N5": {
+                limite = 16000;
+                break;
+            }
+        }
+        start = Usuario.get(0).getConsumo();
+        int inc = ( (Alimento) Usuario.get(0).getAlimento() ).getCalorias();
+        start = start + inc;
+        if (start >= limite){
+            switch(ver){
+                case "N0": {
+                    ver = "N1";
+                    start = 1000 - start;
+                    break;
+                }
+                case "N1": {
+                    ver = "N2";
+                    start = 2000 - start;
+                    break;
+                }
+                case "N2": {
+                    ver = "N3";
+                    start = 4000 - start;
+                    break;
+                }
+                case "N3": {
+                    ver = "N4";
+                    start = 8000 - start;
+                    break;
+                }
+                case "N4": {
+                    ver = "N5";
+                    start = 16000 - start;
+                    break;
+                }
+                case "N5": {
+                    cont++;
+                    ver = "N" + cont;
+                    break;
+                }
+                default: {
+                    cont++;
+                    ver = "N" + cont;
+                    break;
+                }
+            }
+            JOptionPane.showMessageDialog(this, "OHM OHM NOHM");
+        }
+        Usuario.get(0).setConsumo(start);
+        Usuario.get(0).setGordura(ver);
+        Comer.setRowCount(0);
+        Object[] objs = {Usuario.get(0).getNombre(), Usuario.get(0).getUsername(), Usuario.get(0).getGordura(), Usuario.get(0).getConsumo(), Usuario.get(0).getAlimento()};
+        Comer.addRow(objs);
+        Billetera_Tabla.setModel(Comer);
+    }//GEN-LAST:event_Billetera_ComerMouseClicked
 
     /**
      * @param args the command line arguments
@@ -850,6 +985,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Asignar_Alimento;
     private javax.swing.JButton Asignar_Button;
     private javax.swing.JComboBox<String> Asignar_Jugador;
+    private javax.swing.JButton Billetera_Comer;
     private javax.swing.JFormattedTextField Billetera_Consumo;
     private javax.swing.JLabel Billetera_Jugador;
     private javax.swing.JFormattedTextField Billetera_Maximo;
@@ -881,6 +1017,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
